@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>CTF</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <link rel="Stylesheet" type="text/css" href="css/game.css">
+    <link rel="shortcut icon" type="image/png" href="gfx/icon.ico"/>
+  </head>
+  <body>
+    <!-- Game Screen -->
+    <canvas id="GameScreen" width="640" height="360">
+      Your browser does not support HTML5 Canvas.
+    </canvas>
+    <!-- Game Framework -->
+    <script type="text/javascript" src="js/framework/game.js"></script>
+    <script type="text/javascript" src="js/framework/audio.js"></script>
+    <script type="text/javascript" src="js/framework/image.js"></script>
+    <script type="text/javascript" src="js/framework/screen.js"></script>
+    <script type="text/javascript" src="js/framework/state.js"></script>
+    <!-- Game Data -->
+    <script type="text/javascript" src="data/map_small.js"></script>
+    <script type="text/javascript" src="data/map_medium.js"></script>
+    <script type="text/javascript" src="data/map_large.js"></script>
+    <script type="text/javascript" src="data/nnsettings.js"></script>
+    <!-- Utilities -->
+    <script type="text/javascript" src="js/util/button.js"></script>
+    <script type="text/javascript" src="js/util/flowfield.js"></script>
+    <script type="text/javascript" src="js/util/neft.js"></script>
+    <script type="text/javascript" src="js/util/projector.js"></script>
+    <script type="text/javascript" src="js/util/quadtree.js"></script>
+    <script type="text/javascript" src="js/util/timer.js"></script>
+    <script type="text/javascript" src="js/util/vector.js"></script>
+    <script type="text/javascript" src="js/util/raycasting.js"></script>
+    <!-- Entities -->
+    <script type="text/javascript" src="js/entities/collisionmanager.js"></script>
+    <script type="text/javascript" src="js/entities/entity.js"></script>
+    <script type="text/javascript" src="js/entities/player.js"></script>
+    <script type="text/javascript" src="js/entities/map.js"></script>
+    <script type="text/javascript" src="js/entities/vision.js"></script>
+    <script type="text/javascript" src="js/entities/team.js"></script>
+    <script type="text/javascript" src="js/entities/bullet.js"></script>
+    <script type="text/javascript" src="js/entities/flag.js"></script>
+    <!-- Game States -->
+    <script type="text/javascript" src="js/states/gamestate.js"></script>
+    <script type="text/javascript" src="js/states/infostate.js"></script>
+    <script type="text/javascript" src="js/states/mainstate.js"></script>
+    <script type="text/javascript" src="js/states/pausestate.js"></script>
+    <script type="text/javascript" src="js/states/trainsetupstate.js"></script>
+    <script type="text/javascript" src="js/states/trainstate.js"></script>
+    <!-- Start Game Script -->
+    <script type="text/javascript">
+      // Define GFX
+      const GFX = {};
+
+      // Define SFX
+      const SFX = {};
+
+      // Define Colors
+      const COLORS = {
+        "black": "rgb(0,0,0)",
+        "white": "rgb(255,255,255)",
+        "gold": "rgb(255,215,0)",
+        "red": "rgb(255,0,0)",
+        "green": "rgb(0,255,0)",
+        "blue": "rgb(0,0,255)",
+        "darkGrey": "rgb(20,20,20)",
+        "grey": "rgb(80,80,80)",
+        "lightGrey": "rgb(120,120,120)",
+        "purple": "rgb(128,0,128)"
+      };
+
+      // Define Fonts
+      const FONTS = {
+        "small": "bold 12px Monospace",
+        "medium": "bold 18px Monospace",
+        "large": "bold 32px Monospace",
+        "huge": "bold 40px Monospace"
+      };
+
+      // Player Data
+      const PLAYER = {
+        "map": "medium",
+        "brainDimensions": "medium",
+        "mutationRate": "medium",
+        "mutationScale": "medium",
+        "loadedBrains": undefined
+      };
+
+      // Start Game Loop
+      GAME.start(
+        document.getElementById("GameScreen"),
+        Screen.SCALING.aspectRatio,
+        MainState
+      );
+    </script>
+  </body>
+</html>
